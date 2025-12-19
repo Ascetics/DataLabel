@@ -1,7 +1,7 @@
 import dashscope
 from dashscope import Generation
-import json
-from typing import Dict, Optional
+import json, jsonlines
+from typing import Dict
 
 # 设置API Key
 # https://bailian.console.aliyun.com/?tab=model#/api-key
@@ -29,10 +29,11 @@ class OnlineTextLabeler:
                 必须给出具体核查理由，提及相关证据或缺乏证据的原因。
                 
                 【第二步：知识价值评估】
-                从四个维度评分（1-5分，5分为最高价值）：
+                从以下维度评分（1-5分，5分为最高价值）：
                 1. 可靠性：来源权威性与可验证性。                
                 2. 实用性：信息对解决实际问题的帮助程度。
                 3. 系统性：信息组织的逻辑深度与结构性。
+                
                 
                 【第三步：综合标签判定规则】
                 - high：事实核查不为"错误" AND ((≥2个维度≥4分) OR (可靠性维度≥4分)) 
@@ -224,23 +225,47 @@ class OnlineTextLabeler:
 
         print("=" * 50)
 
+    def batch_label_f(self, input_file: str, output_file: str = "labels.jsonl") -> None:
+        print(f"开始批量标注文本")
+        reader = jsonlines.open(input_file, mode='r')
+        writer = jsonlines.open(output_file, mode='w')
+        for i, one_json in enumerate(reader, 1):
+            text = one_json.get('text')
+            result = self.label_single_text(text)
+
+            value_assessment = result.get("value_assessment")
+            label = value_assessment.get("label")
+            overall_reason = value_assessment.get("overall_reason")
+
+            fact_check = result.get("fact_check")
+            reason = fact_check.get("reason")
+
+            one_json["llm_eval_result"] = label
+            one_json["llm_eval_reason"] = reason
+            writer.write(one_json)
+            print(f"正在处理第{i}个文本...")
+        print(f"标注完成！结果保存至 {output_file}")
+        reader.close()
+        writer.close()
+
 
 if __name__ == "__main__":
     # 1. 初始化标注器（可更换模型）
-    labeler = OnlineTextLabeler(model="qwen-plus")  # 或 qwen-max, qwen-turbo
+    labeler = OnlineTextLabeler(model="qwen-turbo")  # 或 qwen-turbo, qwen-plus, qwen-max
 
     # 2. 测试单个文本
+    '''
     test_text = "地球绕太阳公转一周需要365.25天。"
     print(f"测试文本: {test_text}")
-
     result = labeler.label_single_text(test_text)
-
     print(f"\n事实核查: {result['fact_check']['verdict']}")
     print(f"核查理由: {result['fact_check']['reason']}")
     print(f"\n价值标签: {result['value_assessment']['label']}")
     print(f"综合理由: {result['value_assessment']['overall_reason']}")
+    '''
 
     # 3. 批量处理示例
+    '''
     sample_texts = [
         "水在零下100摄氏度会沸腾。",
         "Python是静态类型语言。",
@@ -248,6 +273,9 @@ if __name__ == "__main__":
         "每天睡4小时对大多数成年人来说是最佳睡眠时长。",
         "太阳从西边升起。"
     ]
-
     # 批量标注
     labeler.batch_label(sample_texts, "res_dashscope_v1.jsonl")
+    '''
+
+    # 4. 读取文件批量标注
+    labeler.batch_label_f("desc.jsonl", "res_dashscope_v1.jsonl")
