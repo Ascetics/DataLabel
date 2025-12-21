@@ -9,9 +9,10 @@ client = OpenAI(
 )
 
 judge_txt = '请先判断前述内容是否正确，如果正确那么先输出high，如果不正确那么先输入low，如果不能判断正确与否先输出unknown，然后再说明为什么（给前述内容一段评价），对于时间、地点等不确定因素一律按照今天、中国大陆境内判断。'
-fdesc = jsonlines.open('data-100.jsonl', 'r')
-fres = jsonlines.open('res_llm_v1.jsonl', 'w')
-for index_line, desc_line in enumerate(fdesc):
+fdesc = jsonlines.open('data-200.jsonl', 'r')
+fres = jsonlines.open('data_llm_v1_juesai.jsonl', 'w')
+for i, desc_line in enumerate(fdesc, 1):
+    print(f'处理第{i}个文本')
     desc_txt = desc_line.get('text')
     content_text = desc_txt + judge_txt
     response = client.chat.completions.create(
@@ -39,9 +40,6 @@ for index_line, desc_line in enumerate(fdesc):
     desc_line['llm_eval_reason'] = llm_eval_reason
     fres.write(desc_line)
 
-    # print(desc_line)
-    # if index_line == 0:
-    #     break
 
 fdesc.close()
 fres.close()

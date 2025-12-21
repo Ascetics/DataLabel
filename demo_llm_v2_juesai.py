@@ -18,15 +18,17 @@ judge_txt = '''
 1. 可靠性：来源权威性与可验证性
 2. 实用性：信息对实际问题的帮助程度
 3. 系统性：信息组织的逻辑深度
-4. 新颖性：相比常识的增量价值
 
 请先判断前述内容综合价值判断，如果高价值那么先输出high，如果低价值那么先输入low，如果无法判断正确与否先输出unknown。
 然后再说明为什么（给前述内容一段评价），对于时间、地点等不确定因素一律按照今天、中国大陆境内判断。
+所有返回的数据必须是UTF-8编码兼容的，比如：遇到一些物理问题可能涉及公式或符号，一定不要返回UTF-8编码不兼容的内容。
+对于base转码的问题，base解码得到raw格式的数据，再按照ASCII或者UTF-8解码，再进一步判断。
 '''
 
-fdesc = jsonlines.open('data-100.jsonl', 'r')
-fres = jsonlines.open('res_llm_v2.jsonl', 'w')
-for index_line, desc_line in enumerate(fdesc):
+fdesc = jsonlines.open('data-200.jsonl', 'r')
+fres = jsonlines.open('data_llm_v2_juesai.jsonl', 'w')
+for i, desc_line in enumerate(fdesc):
+    print(f'处理第{i}个文本')
     desc_txt = desc_line.get('text')
     content_text = judge_txt % desc_txt
     response = client.chat.completions.create(
@@ -54,9 +56,6 @@ for index_line, desc_line in enumerate(fdesc):
     desc_line['llm_eval_reason'] = llm_eval_reason
     fres.write(desc_line)
 
-    # print(desc_line)
-    # if index_line == 0:
-    #     break
 
 fdesc.close()
 fres.close()
