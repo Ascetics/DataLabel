@@ -10,6 +10,36 @@ client = OpenAI(
     # https://api-inference.modelscope.cn/v1/。
 )
 
+
+class ModelScopeAPILabeler():
+    '''
+    基于ModelScope API的自动化标注器
+    '''
+
+    def __init__(self, model_name):
+        self.model_name = model_name
+        pass
+
+    def annotate_single(self, text: str):
+        response = client.chat.completions.create(
+            model=self.model_name,  # 模型名字(model):使用魔搭上开源模型的Model Id，例如Qwen/Qwen2.5-Coder-32B-Instruct 。
+            messages=[
+                {
+                    'role': 'system',
+                    'content': 'You are a helpful assistant.'
+                },
+                {
+                    'role': 'user',
+                    'content': text
+                }
+            ],
+            stream=True
+        )
+        pass
+
+    pass
+
+
 judge_txt = '''
 基于事实核查结果，评估以下描述的知识价值：
 事实核查：%s
@@ -24,13 +54,15 @@ judge_txt = '''
 所有返回的数据必须是UTF-8编码兼容的，比如：遇到一些物理问题可能涉及公式或符号，一定不要返回UTF-8编码不兼容的内容。
 对于base转码的问题，base解码得到raw格式的数据，再按照ASCII或者UTF-8解码，再进一步判断。
 '''
-MODEL = "Qwen/Qwen2.5-Coder-32B-Instruct"
+MODEL = "Qwen/Qwen3-235B-A22B-Instruct-2507"
+# Qwen/Qwen3-32B
+MODEL_NAME = MODEL.replace('/', '_')
 FILE_HEAD = 'data-cs'
 INPUT_FILE = f'{FILE_HEAD}.jsonl'
-OUTPUT_FILE = f'{FILE_HEAD}-result-{MODEL}.jsonl'
+OUTPUT_FILE = f'{FILE_HEAD}-result-{MODEL_NAME}.jsonl'
 fdesc = jsonlines.open(INPUT_FILE, 'r')
 fres = jsonlines.open(OUTPUT_FILE, 'w')
-for i, desc_line in enumerate(fdesc):
+for i, desc_line in enumerate(fdesc, 1):
     print(f'处理第{i}个文本')
     desc_txt = desc_line.get('text')
     content_text = judge_txt % desc_txt
@@ -58,7 +90,6 @@ for i, desc_line in enumerate(fdesc):
     desc_line['llm_eval_result'] = llm_eval_result
     desc_line['llm_eval_reason'] = llm_eval_reason
     fres.write(desc_line)
-
 
 fdesc.close()
 fres.close()
