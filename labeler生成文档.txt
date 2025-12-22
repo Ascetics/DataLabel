@@ -1,0 +1,34 @@
+【任务】
+使用DashScope API加载在线模型做数据标注。
+可以使用开源模型API，但模型参数量不得超过32B。
+
+【数据格式】
+读取这个JSONL格式文件，文件中每一行是一个JSON对象，对应一个样本标注结果。
+格式要求如下：
+{
+    "id": "样本编号",
+    "text": "待标注的样本内容",
+    "llm_eval_result": "自动化方法标注结果",
+    "llm_eval_reason": "自动化方法标注理由",
+    "human_annotated_result": "人工标注结果",
+    "human_annotated_reason": "人工标注理由",
+}
+
+字段说明
+"id": 样本的唯一标识符
+"text": 待标注的样本内容
+"llm_eval_result": 自动化方法标注结果，可选值为high（文本描述正确）、low（文本描述错误）、unknown（不确定）。
+"llm_eval_reason": 自动化方法标注理由，当"llm_eval_result"非空时，该变量也非空。如果为空，即使"llm_eval_result"判断正确，也不得分。
+"human_annotated_result": 人工标注结果，可选值同"llm_eval_result"。当"llm_eval_result"和"human_annotated_result"均非空时，以"human_annotated_result"结果为准。
+"human_annotated_reason": 人工标注理由，当"human_annotated_result"非空时，该变量也非空。如果为空，即使"human_annotated_result"判断正确，也不得分。
+
+【最终得分】
+最终得分＝Effective Accuracy * 0.7 + Automation Rate * 0.3
+其中：
+Effective Accuracy为有效准确率，计算公式为：Effective Accuracy = (N_correct + N_unknown x 0.3) / (N_total)
+    N_correct：预测结果与真实标签完全一致的样本数量
+    N_unknown：预测结果为unknown的样本数量。
+    N_total：样本总数
+
+Automation Rate为自动化率，计算公式为：Automation Rate = (N_llm) / (N_total)
+    N_llm：仅使用自动化方法进行判断的样本数量

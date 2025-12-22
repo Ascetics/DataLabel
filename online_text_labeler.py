@@ -41,7 +41,9 @@ class OnlineTextLabeler:
                 - unknown：其他情况
                 
                 【输出格式要求】
-                你必须返回以下JSON格式，不要任何额外解释：
+                你必须返回以下JSON格式，不要任何额外解释。
+                所有返回的数据必须是UTF-8编码兼容的，比如：遇到一些物理问题不要返回UTF-8编码不兼容的内容
+                对于base转码的问题，base解码得到raw格式的数据，再按照ASCII或者UTF-8解码，再进一步判断：
                 ```json
                 {{
                   "fact_check": {{
@@ -157,75 +159,7 @@ class OnlineTextLabeler:
             }
         }
 
-    def batch_label(self, texts: list, output_file: str = "labels.jsonl") -> None:
-        """批量标注并保存为JSONL"""
-        results = []
-
-        print(f"开始批量标注 {len(texts)} 个文本...")
-
-        for i, text in enumerate(texts, 1):
-            print(f"处理第 {i}/{len(texts)} 个文本...")
-
-            result = self.label_single_text(text)
-            results.append(result)
-
-            # 每10条保存一次进度
-            if i % 10 == 0:
-                self.save_progress(results, f"progress_{output_file}")
-                print(f"  已保存进度 ({i}条)")
-
-        # 最终保存
-        self.save_as_jsonl(results, output_file)
-        print(f"标注完成！结果保存至 {output_file}")
-
-        # 输出统计信息
-        self.print_statistics(results)
-
-    def save_as_jsonl(self, data: list, filename: str) -> None:
-        """保存为JSONL格式"""
-        with open(filename, 'w', encoding='utf-8') as f:
-            for item in data:
-                f.write(json.dumps(item, ensure_ascii=False) + '\n')
-
-    def save_progress(self, data: list, filename: str) -> None:
-        """保存进度"""
-        with open(filename, 'w', encoding='utf-8') as f:
-            json.dump(data, f, ensure_ascii=False, indent=2)
-
-    def print_statistics(self, results: list) -> None:
-        """打印统计信息"""
-        labels = [r["value_assessment"]["label"] for r in results]
-        verdicts = [r["fact_check"]["verdict"] for r in results]
-
-        print("\n" + "=" * 50)
-        print("标注统计:")
-        print("-" * 30)
-        print(f"总计: {len(results)} 条")
-
-        print(f"\n事实核查分布:")
-        for v in ["正确", "错误", "不确定"]:
-            count = verdicts.count(v)
-            print(f"  {v}: {count} ({count / len(results) * 100:.1f}%)")
-
-        print(f"\n价值标签分布:")
-        for l in ["high", "low", "unknown"]:
-            count = labels.count(l)
-            print(f"  {l}: {count} ({count / len(results) * 100:.1f}%)")
-
-        # 计算平均维度分数
-        avg_scores = {"reliability": 0, "practicality": 0, "systematic": 0}
-        for r in results:
-            for dim in avg_scores.keys():
-                avg_scores[dim] += r["value_assessment"]["dimensions"][dim]
-
-        print(f"\n平均维度分数:")
-        for dim, total in avg_scores.items():
-            avg = total / len(results)
-            print(f"  {dim}: {avg:.2f}")
-
-        print("=" * 50)
-
-    def batch_label_f(self, input_file: str, output_file: str = "labels.jsonl") -> None:
+    def batch_label_f(self, input_file: str, output_file: str = 'data_dashscope_juesai.jsonl') -> None:
         print(f"开始批量标注文本")
         reader = jsonlines.open(input_file, mode='r')
         writer = jsonlines.open(output_file, mode='w')
@@ -250,32 +184,12 @@ class OnlineTextLabeler:
 
 
 if __name__ == "__main__":
-    # 1. 初始化标注器（可更换模型）
-    labeler = OnlineTextLabeler(model="qwen-turbo")  # 或 qwen-turbo, qwen-plus, qwen-max
+    # 初始化标注器（可更换模型）
+    MODEL = "qwen-turbo"  # 或 qwen-turbo, qwen-plus, qwen-max
+    labeler = OnlineTextLabeler(model=MODEL)
 
-    # 2. 测试单个文本
-    '''
-    test_text = "地球绕太阳公转一周需要365.25天。"
-    print(f"测试文本: {test_text}")
-    result = labeler.label_single_text(test_text)
-    print(f"\n事实核查: {result['fact_check']['verdict']}")
-    print(f"核查理由: {result['fact_check']['reason']}")
-    print(f"\n价值标签: {result['value_assessment']['label']}")
-    print(f"综合理由: {result['value_assessment']['overall_reason']}")
-    '''
-
-    # 3. 批量处理示例
-    '''
-    sample_texts = [
-        "水在零下100摄氏度会沸腾。",
-        "Python是静态类型语言。",
-        "人工智能将彻底改变医疗诊断的准确性。",
-        "每天睡4小时对大多数成年人来说是最佳睡眠时长。",
-        "太阳从西边升起。"
-    ]
-    # 批量标注
-    labeler.batch_label(sample_texts, "res_dashscope_v1.jsonl")
-    '''
-
-    # 4. 读取文件批量标注
-    labeler.batch_label_f("data-100.jsonl", "res_dashscope_v1.jsonl")
+    # 读取文件批量标注
+    FILE_HEAD = 'data-cs'
+    INPUT_FILE = f'{FILE_HEAD}.jsonl'
+    OUTPUT_FILE = f'{FILE_HEAD}-result-{MODEL}.jsonl'
+    labeler.batch_label_f(INPUT_FILE, OUTPUT_FILE)

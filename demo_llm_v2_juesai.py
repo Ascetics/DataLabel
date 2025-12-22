@@ -24,15 +24,18 @@ judge_txt = '''
 所有返回的数据必须是UTF-8编码兼容的，比如：遇到一些物理问题可能涉及公式或符号，一定不要返回UTF-8编码不兼容的内容。
 对于base转码的问题，base解码得到raw格式的数据，再按照ASCII或者UTF-8解码，再进一步判断。
 '''
-
-fdesc = jsonlines.open('data-200.jsonl', 'r')
-fres = jsonlines.open('data_llm_v2_juesai.jsonl', 'w')
+MODEL = "Qwen/Qwen2.5-Coder-32B-Instruct"
+FILE_HEAD = 'data-cs'
+INPUT_FILE = f'{FILE_HEAD}.jsonl'
+OUTPUT_FILE = f'{FILE_HEAD}-result-{MODEL}.jsonl'
+fdesc = jsonlines.open(INPUT_FILE, 'r')
+fres = jsonlines.open(OUTPUT_FILE, 'w')
 for i, desc_line in enumerate(fdesc):
     print(f'处理第{i}个文本')
     desc_txt = desc_line.get('text')
     content_text = judge_txt % desc_txt
     response = client.chat.completions.create(
-        model="Qwen/Qwen2.5-Coder-32B-Instruct",  # 模型名字(model):使用魔搭上开源模型的Model Id，例如Qwen/Qwen2.5-Coder-32B-Instruct 。
+        model=MODEL,  # 模型名字(model):使用魔搭上开源模型的Model Id，例如Qwen/Qwen2.5-Coder-32B-Instruct 。
         messages=[
             {
                 'role': 'system',

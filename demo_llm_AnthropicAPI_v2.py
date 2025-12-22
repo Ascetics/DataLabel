@@ -17,15 +17,21 @@ judge_txt = '''
 请先判断前述内容综合价值判断，如果高价值那么先输出high，如果低价值那么先输入low，如果无法判断正确与否先输出unknown。
 然后再说明为什么（给前述内容一段评价），对于时间、地点等不确定因素一律按照今天、中国大陆境内判断。
 '''
-fdesc = jsonlines.open('data-100.jsonl', 'r')
-fres = jsonlines.open('res_llm_AnthropicAPI_v2.jsonl', 'w')
+
+MODEL = "Qwen/Qwen2.5-Coder-32B-Instruct"
+FILE_HEAD = 'data-cs'
+INPUT_FILE = f'{FILE_HEAD}.jsonl'
+OUTPUT_FILE = f'{FILE_HEAD}-result-{MODEL}.jsonl'
+
+fdesc = jsonlines.open(INPUT_FILE, 'r')
+fres = jsonlines.open(OUTPUT_FILE, 'w')
 for index_line, desc_line in enumerate(fdesc):
     desc_txt = desc_line.get('text')
     content_text = judge_txt % desc_txt
     llm_eval_result = ''
     llm_eval_reason = ''
     with client.messages.stream(
-            model="Qwen/Qwen2.5-7B-Instruct",  # ModelScope Model-Id
+            model=MODEL,  # ModelScope Model-Id
             messages=[
                 {"role": "user", "content": content_text}
             ],
