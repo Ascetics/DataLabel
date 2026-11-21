@@ -1,0 +1,100 @@
+{"id": "q001", "question": "查询位于华东区域的门店，返回 store_name、city、store_type，按 city、store_name 升序。"}
+{"id": "q002", "question": "查询当前在售且标价低于100元的商品，返回 product_name、list_price，按 list_price、product_name 升序。"}
+{"id": "q003", "question": "统计2025年注册且城市为北京的客户数量，结果字段命名为 customer_count。"}
+{"id": "q004", "question": "查询合作评级不低于4.7的供应商，返回 supplier_name、city、rating，按 rating 降序、supplier_name 升序。"}
+{"id": "q005", "question": "查询当前库存低于安全库存的记录，返回 warehouse_id、product_id、stock_qty、safety_stock，按 warehouse_id、product_id 升序。"}
+{"id": "q006", "question": "查询当前在售商品中标价最高的商品；若并列全部保留。返回 product_name、list_price，按 product_name 升序。"}
+{"id": "q007", "question": "查询没有文字评价内容的评价记录，返回 review_id、rating，按 review_id 升序。"}
+{"id": "q008", "question": "统计每个商品大类下的商品数量，返回 parent_group、product_count，按 product_count 降序、parent_group 升序。"}
+{"id": "q009", "question": "查询2025年7月1日当天有效的商品历史价格，返回 product_id、price，按 product_id 升序。"}
+{"id": "q010", "question": "统计各会员等级的客户数量，返回 level_name、customer_count，按 customer_count 降序、level_name 升序。"}
+{"id": "q011", "question": "查询每个仓库当前库存总量，返回 warehouse_name、total_stock，按 total_stock 降序、warehouse_name 升序。"}
+{"id": "q012", "question": "查询各品牌当前在售商品数量，返回 brand_name、active_product_count，按 active_product_count 降序、brand_name 升序。"}
+{"id": "q013", "question": "查询2025年发生的退款成功记录，返回 return_id、refund_amount、return_date，按 return_date、return_id 升序。"}
+{"id": "q014", "question": "统计各支付方式的支付成功笔数，返回 payment_method、success_count，按 success_count 降序、payment_method 升序。"}
+{"id": "q015", "question": "查询直属下属人数不少于5人的经理，返回 manager_id、report_count，按 manager_id 升序。"}
+{"id": "q016", "question": "查询每个商品的类别和品牌，返回 product_name、category_name、brand_name；只保留当前在售商品，按 product_name 升序。"}
+{"id": "q017", "question": "查询金卡会员的客户，返回 customer_id、customer_name、city、points，按 points 降序、customer_id 升序。会员等级名称需通过会员等级表确定。"}
+{"id": "q018", "question": "统计各门店销售部门员工数量，返回 store_name、sales_staff_count，只保留销售人员不少于2人的门店，按 sales_staff_count 降序、store_name 升序。"}
+{"id": "q019", "question": "统计每个仓库低于安全库存的商品数量，返回 warehouse_name、low_stock_count，按 low_stock_count 降序、warehouse_name 升序。"}
+{"id": "q020", "question": "计算各商品类别当前在售商品的平均标价，返回 category_name、avg_list_price，四舍五入到2位小数，按 avg_list_price 降序。"}
+{"id": "q021", "question": "查询既出现过支付失败、又最终存在支付成功记录的订单，返回 order_id，按 order_id 升序。"}
+{"id": "q022", "question": "统计2025年成功支付金额，按支付方式汇总，返回 payment_method、paid_total，paid_total 保留2位小数，按 paid_total 降序。"}
+{"id": "q023", "question": "查询只有支付失败记录、从未成功支付的订单，返回 order_id，按 order_id 升序。"}
+{"id": "q024", "question": "查询2026年没有收到任何评价的商品，返回 product_id、product_name，按 product_id 升序。"}
+{"id": "q025", "question": "查询参加“双11大促”的商品，返回 product_id、product_name，按 product_id 升序。"}
+{"id": "q026", "question": "统计每名推荐人成功推荐的客户数量，返回 referrer_id、referred_count，只保留至少推荐3人的推荐人，按 referred_count 降序、referrer_id 升序。"}
+{"id": "q027", "question": "查询工资高于其所在门店全部员工平均工资的员工，返回 employee_id、employee_name、store_id、salary，按 store_id、salary 降序、employee_id 升序。"}
+{"id": "q028", "question": "查询2022年以前开业的门店及所在区域，返回 store_name、region_name、open_date，按 open_date 升序。"}
+{"id": "q029", "question": "查询每个商品在2025年1月15日生效的历史价格，返回 product_name、price；只保留当日已有价格记录的商品，按 product_name 升序。"}
+{"id": "q030", "question": "查询已签收且从发货到签收不超过3天的物流记录，返回 order_id、carrier、shipped_date、delivered_date，按 order_id 升序。"}
+{"id": "q031", "question": "统计每个商品在全部仓库的当前库存总量，返回 product_id、product_name、total_stock；只保留总库存少于250件的商品，按 total_stock、product_id 升序。"}
+{"id": "q032", "question": "查询2025年没有下过任何订单的客户，返回 customer_id、customer_name，按 customer_id 升序。"}
+{"id": "q033", "question": "查询成功支付时使用了至少两种不同支付方式的订单，返回 order_id、method_count，按 method_count 降序、order_id 升序。"}
+{"id": "q034", "question": "计算各品牌的平均商品评分，只统计至少有5条评价的品牌。返回 brand_name、review_count、avg_rating，avg_rating 保留2位小数，按 avg_rating 降序、brand_name 升序。"}
+{"id": "q035", "question": "统计每个上级业务分组下的类别数量，返回 parent_group、category_count，按 category_count 降序、parent_group 升序。"}
+{"id": "q036", "question": "查询供应商品种数最多的供应商；并列全部保留。返回 supplier_name、product_count，按 supplier_name 升序。"}
+{"id": "q037", "question": "统计各退货原因的退款成功金额，返回 reason、refund_total，保留2位小数，按 refund_total 降序、reason 升序。"}
+{"id": "q038", "question": "查询2025年6月10日有效的促销活动，并统计每个活动覆盖的商品数量。返回 promotion_name、product_count，按 product_count 降序。"}
+{"id": "q039", "question": "查询通过线上商城下单、订单交易已完成且物流已签收的订单，返回 order_id、store_id、delivered_date，按 delivered_date、order_id 升序。"}
+{"id": "q040", "question": "按门店统计2025年下单订单的应付金额总计，返回 store_name、payable_total，保留2位小数，按 payable_total 降序。"}
+{"id": "q041", "question": "查询2025年已完成订单中购买过至少3个不同商品类别的客户。返回 customer_id、customer_name、category_count，按 category_count 降序、customer_id 升序。"}
+{"id": "q042", "question": "查询2025年已完成订单中，在华北、华东、华南、西部四个区域都至少被购买过一次的商品。返回 product_id、product_name，按 product_id 升序。"}
+{"id": "q043", "question": "查询2025年已完成订单中购买过“智能手机”类别商品、但从未在2025年已完成订单中购买过“电脑办公”类别商品的客户。返回 customer_id、customer_name，按 customer_id 升序。"}
+{"id": "q044", "question": "查询2025年已完成订单中累计售出至少10件、且这些已完成订单明细从未发生退款成功记录的商品。返回 product_id、product_name、sold_qty，按 sold_qty 降序、product_id 升序。"}
+{"id": "q045", "question": "以2025年下单的已完成、部分退款、已退款订单为范围，按商品计算成功退款件数/售出件数的退货率。返回 product_id、product_name、return_rate，只保留退货率超过10%的商品，return_rate 保留4位小数，按 return_rate 降序。成功退款件数只统计 return_status=退款成功。"}
+{"id": "q046", "question": "找出2025年已完成订单中每个商品类别销量（件数）最高的商品；并列全部保留。返回 category_name、product_name、sold_qty，按 category_name、product_name 升序。"}
+{"id": "q047", "question": "按订单明细成交额 quantity*unit_price*(1-discount_rate) 计算2025年已完成订单的销售额，找出每个品牌销售额最高的商品；并列全部保留。返回 brand_name、product_name、sales_amount，保留2位小数，按 brand_name、product_name 升序。"}
+{"id": "q048", "question": "按2025年下单订单统计客户的支付成功金额。查询支付成功金额高于“有成功支付客户”的客户平均支付金额的客户，返回 customer_id、customer_name、paid_total，保留2位小数，按 paid_total 降序。"}
+{"id": "q049", "question": "对2025年每个门店每个月，计算当月下单订单的支付成功金额，并与 store_targets.sales_target 比较。返回 store_name、target_month、paid_total、sales_target、achievement_rate，只保留达成率>=1的月份；金额和达成率均保留2位小数，按 store_name、target_month 升序。"}
+{"id": "q050", "question": "统计2025年每个门店销售额目标达成的月份数。销售额按当月下单订单的支付成功金额计算。返回 store_name、months_met，只保留至少达成2个月的门店，按 months_met 降序、store_name 升序。"}
+{"id": "q051", "question": "按2025年下单月份计算净回款：支付成功金额减去退款成功金额（退款归属于原订单下单月份）。返回 month、net_cash，保留2位小数，按 month 升序。"}
+{"id": "q052", "question": "计算2025年每个月的净回款及其相对上个月的环比增长率。净回款定义同上一题；1月的 growth_rate 为 NULL。返回 month、net_cash、growth_rate，金额和增长率保留2位小数，按 month 升序。"}
+{"id": "q053", "question": "找出2025年存在“连续3个月支付成功金额逐月增长”的门店。返回 store_id、store_name；一个门店只返回一次，按 store_id 升序。没有成功支付的月份按0处理。"}
+{"id": "q054", "question": "查询首次成功交易后30天内又发生第二笔成功交易的客户。成功交易定义为订单至少有一笔支付成功记录。返回 customer_id、customer_name、first_order_date、second_order_date，按 customer_id 升序。"}
+{"id": "q055", "question": "查询曾在180天内重复购买同一商品的客户-商品组合。只考虑至少有支付成功记录的订单。返回 customer_id、product_id、first_date、repeat_date；每个客户-商品只保留最早满足条件的一对日期，按 customer_id、product_id 升序。"}
+{"id": "q056", "question": "查询2025年所有非门店渠道的成功交易订单都已经签收的客户。成功交易定义为存在支付成功记录；客户在2025年至少要有1笔非门店渠道成功交易。返回 customer_id、customer_name，按 customer_id 升序。"}
+{"id": "q057", "question": "查询“成功退款金额 >= 支付成功金额”的订单，返回 order_id、paid_total、refund_total，金额保留2位小数，按 order_id 升序。只统计 payment_status=支付成功 和 return_status=退款成功。"}
+{"id": "q058", "question": "查询2025年下单订单中，成功退款金额占成功支付金额20%到80%（含）的订单。返回 order_id、refund_ratio，保留4位小数，按 refund_ratio 降序、order_id 升序。"}
+{"id": "q059", "question": "对每个促销活动，统计活动有效日期内、且商品在该活动适用商品表中的订单明细成交额 quantity*unit_price*(1-discount_rate)。返回 promotion_name、sales_amount，保留2位小数；没有成交的活动也要返回0，按 sales_amount 降序。"}
+{"id": "q060", "question": "查询历史价格记录至少有3段、且价格从最早到最新严格递减的商品。返回 product_id、product_name，按 product_id 升序。"}
+{"id": "q061", "question": "查询当前标价低于该商品全部历史价格记录平均值的商品，返回 product_id、product_name、list_price、avg_history_price，平均历史价格保留2位小数，按 product_id 升序。"}
+{"id": "q062", "question": "计算2025年已完成订单中各商品类别的“加权平均明细折扣率”，权重为 quantity*unit_price。返回 category_name、weighted_discount_rate，保留4位小数，按 weighted_discount_rate 降序。"}
+{"id": "q063", "question": "查询2025年已完成订单中，存在某条订单明细的折后单价 unit_price*(1-discount_rate) 不高于该商品下单日生效历史价格80%的商品。返回 product_id、product_name，去重后按 product_id 升序。"}
+{"id": "q064", "question": "以2025年下单订单的支付成功金额作为门店销售额，找出每个区域销售额最高的门店；并列全部保留。返回 region_name、store_name、paid_total，保留2位小数，按 region_name、store_name 升序。"}
+{"id": "q065", "question": "查询工资高于“所在门店、所在部门”平均工资的员工。返回 employee_id、employee_name、store_id、department、salary，按 store_id、department、salary 降序。"}
+{"id": "q066", "question": "查询直属下属平均工资最高的经理；若并列全部保留。返回 manager_id、manager_name、avg_report_salary，平均工资保留2位，按 manager_id 升序。"}
+{"id": "q067", "question": "按客户比较2024年和2025年下单订单的支付成功金额，查询2025年金额高于2024年且两年都有成功支付的客户。返回 customer_id、paid_2024、paid_2025、growth_amount，金额保留2位小数，按 growth_amount 降序。"}
+{"id": "q068", "question": "计算各城市客户中钻石会员的占比。返回 city、customer_count、diamond_count、diamond_rate，diamond_rate 保留4位小数，只保留客户数不少于5的城市，按 diamond_rate 降序。钻石会员需通过 customer_levels.level_name 判断。"}
+{"id": "q069", "question": "查询评价数不少于5、平均评分不低于4.0，且2025年已完成订单销量不少于8件的商品。返回 product_id、product_name、review_count、avg_rating、sold_qty，avg_rating 保留2位小数，按 avg_rating 降序、sold_qty 降序。"}
+{"id": "q070", "question": "查询2025年12个月中至少10个月有已完成订单销量的商品。返回 product_id、product_name、active_months，按 active_months 降序、product_id 升序。"}
+{"id": "q071", "question": "查询2025年成功交易订单覆盖至少3个不同销售区域的客户。成功交易定义为至少存在一笔支付成功记录。返回 customer_id、customer_name、region_count，按 region_count 降序、customer_id 升序。"}
+{"id": "q072", "question": "查询至少有2笔订单且其所有订单都存在支付成功记录的客户。返回 customer_id、customer_name、order_count，按 order_count 降序、customer_id 升序。"}
+{"id": "q073", "question": "在2025年已完成订单中，统计与“智能手机”类别商品出现在同一订单中的非智能手机商品次数。返回 product_id、product_name、co_order_count，取次数最高的前5个商品，按 co_order_count 降序、product_id 升序。每个订单-商品组合只计1次。"}
+{"id": "q074", "question": "在2025年已完成订单中，找出共同出现在同一订单中的商品对，返回 product_a、product_b、co_order_count，先按 co_order_count 降序，再按 product_a、product_b 升序，取排序后的前10对。商品对按较小 product_id 作为 product_a，较大 product_id 作为 product_b；同一订单每对只计1次。"}
+{"id": "q075", "question": "按2025年已完成订单明细成交额 quantity*unit_price*(1-discount_rate) 计算销售额，并计算各商品类别占全部类别销售额的比例。返回 category_name、sales_amount、sales_share，金额保留2位、比例保留4位，按 sales_share 降序。"}
+{"id": "q076", "question": "按2025年每个月、每个门店计算支付成功金额，并在同一个月内按金额降序对门店排名；并列使用 DENSE_RANK。返回 month、store_name、paid_total、monthly_rank，只保留每月前3名，金额保留2位，按 month、monthly_rank、store_name 升序。"}
+{"id": "q077", "question": "按2025年下单订单的支付成功金额计算客户消费额，在每个客户城市内选消费额前2名；并列按 DENSE_RANK 保留。返回 city、customer_id、customer_name、paid_total、city_rank，按 city、city_rank、customer_id 升序。"}
+{"id": "q078", "question": "对2025年下单订单，按商品计算“净销售额 = 该商品所在订单的支付成功金额按订单明细折后金额比例分摊 - 该商品退款成功金额”。在每个类别内按净销售额排名，返回前2名（DENSE_RANK，并列保留）。返回 category_name、product_name、net_sales、category_rank，net_sales 保留2位，按 category_name、category_rank、product_name 升序。"}
+{"id": "q079", "question": "计算2025年每个门店连续达成销售目标的最长月份数。销售额按当月下单订单的支付成功金额计算，没有销售的月份按0。返回 store_name、longest_streak，按 longest_streak 降序、store_name 升序。"}
+{"id": "q080", "question": "对2024年注册的客户做90天复购分析：首次成功交易发生在注册日之后，且首次成功交易后的90天内又有另一笔成功交易，则视为90天复购。返回 cohort_size、repurchased_90d、repurchase_rate，比例保留4位。成功交易定义为存在支付成功记录。"}
+{"id": "q081", "question": "计算每个客户的生命周期净贡献：全部订单支付成功金额减去全部退款成功金额。返回 customer_id、customer_name、lifetime_net_value，保留2位，取净贡献最高的前10名，按 lifetime_net_value 降序、customer_id 升序。"}
+{"id": "q082", "question": "找出“首购日购买了至少2个不同商品类别”的成功交易客户。首购日定义为该客户最早存在支付成功记录的订单日期；若首日有多笔订单需合并。返回 customer_id、first_order_date、first_day_category_count，按 first_day_category_count 降序、customer_id 升序。"}
+{"id": "q083", "question": "比较客户2024年与2025年的成功支付金额，计算 spend_shift=(paid_2025-paid_2024)/(paid_2024+paid_2025)。只保留两年都有成功支付的客户，返回 customer_id、paid_2024、paid_2025、spend_shift，比例保留4位，取 spend_shift 最大的前10名。"}
+{"id": "q084", "question": "查询这样的品牌：该品牌当前所有在售商品在2025年都至少有4个不同月份出现于已完成订单中。品牌至少要有2个在售商品。返回 brand_name、active_product_count，按 brand_name 升序。"}
+{"id": "q085", "question": "查询2025年已完成订单中至少通过3种不同下单渠道售出的商品。返回 product_id、product_name、channel_count，按 channel_count 降序、product_id 升序。"}
+{"id": "q086", "question": "查询参加过至少一个促销活动、但在其所参加的所有活动有效期内都从未产生订单明细的商品。返回 product_id、product_name，按 product_id 升序。"}
+{"id": "q087", "question": "对每个折扣类促销，计算“活动期日均成交额 / 活动开始前等长天数的日均成交额”的 lift_ratio。成交额仅统计适用商品的订单明细 quantity*unit_price*(1-discount_rate)，活动前窗口不含活动开始日。返回 promotion_name、lift_ratio，保留4位，只保留活动期和活动前都存在成交额的活动，按 lift_ratio 降序。"}
+{"id": "q088", "question": "按2025年下单订单的支付成功金额计算门店上半年和下半年销售额。查询下半年销售额至少比上半年高20%的门店。返回 store_name、h1_paid、h2_paid、growth_rate，金额和增长率保留2位，按 growth_rate 降序。"}
+{"id": "q089", "question": "以2025年下单订单的支付成功金额计算区域月销售额，找出每个区域销售额最高的月份；并列全部保留。返回 region_name、month、paid_total，保留2位，按 region_name、month 升序。"}
+{"id": "q090", "question": "计算各承运商已签收物流的平均配送天数（delivered_date-shipped_date），返回 carrier、shipment_count、avg_delivery_days；只统计 shipped_date 和 delivered_date 都非空的记录，avg_delivery_days 保留2位，按 avg_delivery_days 升序。"}
+{"id": "q091", "question": "查询2025年下单订单中，成功退款金额超过成功支付金额30%，且购买过至少3个不同商品类别的客户。返回 customer_id、paid_total、refund_total、category_count，金额保留2位，按 refund_total/paid_total 降序。"}
+{"id": "q092", "question": "以2025年已完成订单明细成交额 quantity*unit_price*(1-discount_rate) 计算商品销售额。查询销售额高于“同一供应商旗下商品平均销售额”的商品。返回 supplier_name、product_name、sales_amount、supplier_avg_sales，金额保留2位，按 supplier_name、sales_amount 降序。未在2025年已完成订单中销售的商品以0销售额参与供应商平均值。"}
+{"id": "q093", "question": "分别按2025年上半年和下半年已完成订单明细成交额对商品在各自类别内排名（DENSE_RANK）。查询下半年名次比上半年更靠前的商品，且两半年都有销售。返回 category_name、product_name、rank_h1、rank_h2，按 category_name、rank_h2、product_name 升序。"}
+{"id": "q094", "question": "对2025年每个客户，找出其成功支付金额最高的单个订单；并列全部保留。返回 customer_id、order_id、order_paid，金额保留2位，按 customer_id、order_id 升序。订单成功支付金额为该订单所有支付成功记录之和。"}
+{"id": "q095", "question": "以2026-06-30为观察日，计算每个商品的库存覆盖天数：全部仓库当前库存总量 / 最近90天（2026-04-02至2026-06-30）已完成订单日均销量。只保留最近90天销量>0的商品。返回 product_id、product_name、coverage_days，保留2位，按 coverage_days 升序。"}
+{"id": "q096", "question": "计算每个仓库“当前在售商品中库存低于安全库存”的占比。返回 warehouse_name、active_product_count、low_stock_count、low_stock_rate，比例保留4位；只保留占比超过20%的仓库，按 low_stock_rate 降序。"}
+{"id": "q097", "question": "查询2025年已完成订单销量不少于20件，且当前至少有2个仓库库存低于安全库存的商品。返回 product_id、product_name、sold_2025、low_stock_warehouses，按 low_stock_warehouses 降序、sold_2025 降序。"}
+{"id": "q098", "question": "查询2025年成功支付订单的平均订单支付金额高于其所在城市客户平均值、且2025年没有退款成功记录的客户。订单支付金额先按订单汇总支付成功金额，再按客户求平均。返回 customer_id、customer_name、avg_order_paid、city_avg_order_paid，金额保留2位，按 avg_order_paid 降序。"}
+{"id": "q099", "question": "按2025年月份比较两种金额口径：①当月下单订单的 payable_amount 总和；②当月实际发生的支付成功金额（按 paid_at 月份）。返回 month、ordered_payable、cash_received、difference=cash_received-ordered_payable，金额保留2位，按 month 升序。月份固定为2025年1月至12月，缺失按0。"}
+{"id": "q100", "question": "综合评价2025年各区域门店：先对每个门店计算全年支付成功金额 total_paid 和2025年销售目标总额 target_total，再计算 achievement_rate=total_paid/target_total；在每个区域内，先按 achievement_rate 降序、再按 total_paid 降序排名，取第1名。返回 region_name、store_name、total_paid、target_total、achievement_rate，金额和比例保留2位，按 region_name 升序。"}
