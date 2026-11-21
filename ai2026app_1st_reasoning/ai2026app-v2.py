@@ -53,7 +53,7 @@ MODEL = "qwen3.8-27b"                                            # 赛题指定�
 
 INPUT_FILE = "生成式人工智能系统应用员初赛实操题.jsonl"
 OUTPUT_FILE = "生成式人工智能系统应用员初赛实操题-a2.jsonl"
-LOG_FILE = "run.log"
+LOG_FILE = "../run.log"
 
 MAX_WORKERS = 4            # 并发线程数：接口限流时报 429 就调小到 1~2
 MAX_RETRIES = 3            # 单题最多尝试次数（含格式纠错重试）
