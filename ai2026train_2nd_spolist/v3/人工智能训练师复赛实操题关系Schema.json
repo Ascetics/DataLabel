@@ -1,0 +1,126 @@
+[
+  {
+    "predicate": "下令营建",
+    "description": "主体明确下令、命令或主持启动客体建筑/工程的营建。"
+  },
+  {
+    "predicate": "列入",
+    "description": "主体被正式纳入、登录或列入客体所指的名录、名单或保护体系。"
+  },
+  {
+    "predicate": "位于",
+    "description": "主体在地理空间上位于客体所指地点或区域。"
+  },
+  {
+    "predicate": "创立",
+    "description": "主体明确创建、创办或发起成立客体机构、企业、学校或组织；不用于软件、算法、技术、产品或作品。"
+  },
+  {
+    "predicate": "发布",
+    "description": "主体正式发布、推出或公开客体产品、系统、文件或成果。"
+  },
+  {
+    "predicate": "收购",
+    "description": "主体已经完成对客体的收购。仅宣布、计划、签约但尚未完成，或后来终止的交易不计。"
+  },
+  {
+    "predicate": "应用于",
+    "description": "主体技术、方法或产品明确被用于客体领域、场景或任务。"
+  },
+  {
+    "predicate": "获得",
+    "description": "主体明确获得客体所指奖项、冠军、荣誉或称号。"
+  },
+  {
+    "predicate": "创作",
+    "description": "主体明确创作、撰写或著有客体作品。"
+  },
+  {
+    "predicate": "翻译",
+    "description": "主体明确将客体作品译成另一种语言或担任其译者。"
+  },
+  {
+    "predicate": "合作",
+    "description": "主体与客体之间明确存在合作、联合或协作关系；仅共同出现在同一事件中不视为合作。"
+  },
+  {
+    "predicate": "发生于",
+    "description": "主体事件被文本明确说明发生在客体地点。"
+  },
+  {
+    "predicate": "起源于",
+    "description": "主体文化、事物或传统被文本明确说明起源于客体地区或来源。"
+  },
+  {
+    "predicate": "担任",
+    "description": "人物明确担任客体所指职位、角色或职务。"
+  },
+  {
+    "predicate": "前身",
+    "description": "主体由客体所指的更早机构、组织或名称演变、改组而来。"
+  },
+  {
+    "predicate": "更名为",
+    "description": "主体在文本所述时间由原名称正式改称为客体名称。"
+  },
+  {
+    "predicate": "隶属于",
+    "description": "主体机构在组织关系上明确隶属、归属或由客体主管。"
+  },
+  {
+    "predicate": "任职于",
+    "description": "人物明确在客体机构工作、任职或受聘。"
+  },
+  {
+    "predicate": "毕业于",
+    "description": "人物明确从客体学校或教育机构毕业。"
+  },
+  {
+    "predicate": "连接",
+    "description": "交通设施、线路或通道明确连接客体地点。"
+  },
+  {
+    "predicate": "途经",
+    "description": "交通线路或设施明确经过、经由客体地点。"
+  },
+  {
+    "predicate": "跨越",
+    "description": "桥梁、线路等明确跨越客体所指河流、海域或地理障碍。"
+  },
+  {
+    "predicate": "迁至",
+    "description": "主体从原地点迁移到客体所指地点。"
+  },
+  {
+    "predicate": "组成",
+    "description": "主体这一整体明确由客体作为组成部分之一构成。"
+  },
+  {
+    "predicate": "效力于",
+    "description": "运动员明确为客体球队、俱乐部或运动组织效力。"
+  },
+  {
+    "predicate": "击败",
+    "description": "主体在明确比赛、对局或竞赛中战胜客体。"
+  },
+  {
+    "predicate": "通航至",
+    "description": "机场或航空运输主体已有明确航班飞往客体地点；仅计划航线不计。"
+  },
+  {
+    "predicate": "举办于",
+    "description": "赛事、活动或会议明确在客体地点举办。"
+  },
+  {
+    "predicate": "研发",
+    "description": "主体明确发明、开发、设计、研制或提出客体软件、算法、技术、产品、系统或方法。"
+  },
+  {
+    "predicate": "搭载",
+    "description": "主体载具、平台或设备明确装载、承载客体。"
+  },
+  {
+    "predicate": "着陆于",
+    "description": "主体航天器、飞行器等明确着陆在客体地点。"
+  }
+]
