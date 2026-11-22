@@ -27,7 +27,7 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 # ============================================================
 
 # 你的讯飞星火 MaaS API Key（自己替换，从 https://maas.xfyun.cn/ 的服务管控页面获取）
-API_KEY = "ak-ade8de781bebccd1d1ba428592c34ea8"
+API_KEY = "ak-"
 
 # 讯飞星火 MaaS 新接口地址（OpenAI 兼容写法，不要用老版 ws:// 星火接口）
 # 2026-01-10 及之后发布的服务用 v2（当前推荐）；此前存量服务可继续用 v1。

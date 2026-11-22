@@ -43,18 +43,18 @@ INPUT_FILE = "人工智能训练师复赛实操题.jsonl"
 OUTPUT_FILE = "人工智能训练师初赛实操题-a1.jsonl"
 
 # ---------- 阿里云百炼：仲裁模型 ----------
-DASHSCOPE_API_KEY = "sk-ws-H.YYMEYRI.GoK2.MEYCIQC-EXczLvaE935t9JRzvhE8nODMNwmVJgUesju7IvWSbAIhAJ9hvrD4zRaaMwN1-_0whJz84oPrtnkf_gao4gj-2a20"
+DASHSCOPE_API_KEY = "sk-"
 DASHSCOPE_MODEL = "qwen3.8-27b"   # 官网 id 为小写；若控制台显示不同请按控制台修改
 DASHSCOPE_URL = "https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions"
 
 # ---------- 硅基流动：抽取模型 1 ----------
-SILICONFLOW_API_KEY = "sk-sxonjhtlsbketbarbwjifpwalapsxjjtbfskqeyrryovphdz"
+SILICONFLOW_API_KEY = "sk-"
 SILICONFLOW_MODEL = "Qwen/Qwen3-32B"
 SILICONFLOW_URL = "https://api.siliconflow.cn/v1/chat/completions"
 
 # ---------- 讯飞星火 MaaS：抽取模型 2、3 ----------
 # API Key 形如 ak-xxx，在 https://maas.xfyun.cn/ 控制台创建；两个模型共用同一把 Key。
-XFYUN_API_KEY = "ak-ade8de781bebccd1d1ba428592c34ea8"          # 例如 "ak-xxxxxxxxxxxxxxxx"
+XFYUN_API_KEY = "ak-"          # 例如 "ak-xxxxxxxxxxxxxxxx"
 XFYUN_URL = "https://maas-api.cn-huabei-1.xf-yun.com/v2/chat/completions"
 XFYUN_MODEL_A = "xopglm53"
 XFYUN_MODEL_B = "xsparkx2flash"

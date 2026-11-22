@@ -47,7 +47,7 @@ REQUEST_TIMEOUT = 120
 MAX_RETRIES = 2
 
 # ---------- API Key：自行替换 ----------
-TAOTOKEN_API_KEY = "sk-dfgasjmkqxrzygzwtxkdmbmxihsfwzgoqvmkhijqfwtib"        # 4 个模型共用（含抽取与仲裁）
+TAOTOKEN_API_KEY = "sk-"        # 4 个模型共用（含抽取与仲裁）
 
 # ---------- 模型接口 ----------
 # 四个模型全部走 TaoToken：OpenAI 兼容，base_url 填到 /api/v1
