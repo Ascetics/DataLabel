@@ -47,7 +47,7 @@ except ImportError:  # 依赖缺失时给出明确提示，而不是抛一堆栈
 # ============================================================================
 # 一、配置区（通常只需要改 API_KEY）
 # ============================================================================
-API_KEY = "sk-ws-H.YYMEYRI.GoK2.MEYCIQC-EXczLvaE935t9JRzvhE8nODMNwmVJgUesju7IvWSbAIhAJ9hvrD4zRaaMwN1-_0whJz84oPrtnkf_gao4gj-2a20"
+API_KEY = "" # 阿里云百炼API_KEY
 BASE_URL = "https://dashscope.aliyuncs.com/compatible-mode/v1"   # OpenAI 兼容模式接口
 MODEL = "qwen3.8-27b"                                            # 赛题指定模型（大小写与网关模型名严格一致）
 

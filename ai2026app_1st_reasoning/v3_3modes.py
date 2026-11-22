@@ -79,9 +79,9 @@ ERROR_PREVIEW_LEN = 300        # 控制台打印错误原因时的截断长度
 # 二、三个平台的模型配置（★ API_KEY 在这里替换 ★）
 # ==============================================================================
 
-DASHSCOPE_API_KEY = "sk-ws-H.YYMEYRI.GoK2.MEYCIQC-EXczLvaE935t9JRzvhE8nODMNwmVJgUesju7IvWSbAIhAJ9hvrD4zRaaMwN1-_0whJz84oPrtnkf_gao4gj-2a20"          # 阿里云百炼：https://bailian.console.aliyun.com
-SILICONFLOW_API_KEY = "sk-sxonjhtlsbketbarbwjifpwalapsxjjtbfskqeyrryovphdz"          # 硅基流动：https://cloud.siliconflow.cn
-SPARK_API_KEY = "ak-ade8de781bebccd1d1ba428592c34ea8"              # 讯飞星火（新 MaaS 接口）：只填 APIKey，无需拼接 APISecret
+DASHSCOPE_API_KEY = "sk-"          # 阿里云百炼：https://bailian.console.aliyun.com
+SILICONFLOW_API_KEY = "sk-"          # 硅基流动：https://cloud.siliconflow.cn
+SPARK_API_KEY = "ak-"              # 讯飞星火（新 MaaS 接口）：只填 APIKey，无需拼接 APISecret
 
 MODELS = [
     {
