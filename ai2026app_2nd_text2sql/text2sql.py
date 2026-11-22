@@ -61,7 +61,7 @@ from typing import Any, Dict, List, Optional, Tuple
 # ============================================================================
 MODEL = "Qwen/Qwen3-Coder-30B-A3B-Instruct"
 BASE_URL = "https://api.siliconflow.cn/v1"          # 硅基流动 OpenAI 兼容端点
-API_KEY = "sk-sxonjhtlsbketbarbwjifpwalapsxjjtbfskqeyrryovphdz"            # 【必改】把占位文字替换成真实 API Key；也可留空并设环境变量
+API_KEY = "sk-"            # 【必改】把占位文字替换成真实 API Key；也可留空并设环境变量
 
 # 若顶部未填写（仍是占位文字或留空），则回退读取环境变量 SILICONFLOW_API_KEY
 _PLACEHOLDERS = ("请在这里填入", "填入硅基流动", "your_api_key", "sk-xxx")
