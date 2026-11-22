@@ -1,0 +1,9 @@
+.idea/
+*.iml
+
+__pycache__/
+*.py[cod]
+*.log
+
+**/text2sql_cache.json
+**/text2sql_call_log.jsonl
