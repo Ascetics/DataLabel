@@ -104,7 +104,7 @@ class ModelConfig:
 MODEL_BAILIAN = ModelConfig(
     short="百炼",
     name="阿里云百炼-Qwen3.8-27B",
-    api_key="sk-ws-H.YYMEYRI.GoK2.MEYCIQC-EXczLvaE935t9JRzvhE8nODMNwmVJgUesju7IvWSbAIhAJ9hvrD4zRaaMwN1-_0whJz84oPrtnkf_gao4gj-2a20",
+    api_key="sk-",
     # 百炼 OpenAI 兼容模式（北京地域）；国际站改为
     # https://dashscope-intl.aliyuncs.com/compatible-mode/v1
     base_url="https://dashscope.aliyuncs.com/compatible-mode/v1",
@@ -114,7 +114,7 @@ MODEL_BAILIAN = ModelConfig(
 MODEL_SILICONFLOW = ModelConfig(
     short="硅基",
     name="硅基流动-Qwen3-32B（仲裁者）",
-    api_key="sk-sxonjhtlsbketbarbwjifpwalapsxjjtbfskqeyrryovphdz",
+    api_key="sk-",
     base_url="https://api.siliconflow.cn/v1",
     model="Qwen/Qwen3-32B",
     is_arbiter=True,                     # 无法形成多数时，以它的答案为准
@@ -126,7 +126,7 @@ MODEL_SILICONFLOW = ModelConfig(
 MODEL_XFYUN = ModelConfig(
     short="讯飞",
     name="讯飞星火-Spark-X2-Flash",
-    api_key="ak-ade8de781bebccd1d1ba428592c34ea8",
+    api_key="ak-",
     # 讯飞星辰 MaaS 平台 OpenAI 兼容接口（官方文档：model=xsparkx2flash）
     # OpenAI_Chat: https://maas-api.cn-huabei-1.xf-yun.com/v2/chat/completions
     base_url="https://maas-api.cn-huabei-1.xf-yun.com/v2",
